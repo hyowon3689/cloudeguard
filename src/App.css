@@ -1,0 +1,586 @@
+/* ================================
+   CloudGuard Security Dashboard
+   ================================ */
+
+:root {
+  font-family:
+    Inter,
+    Pretendard,
+    "Noto Sans KR",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #e8edf7;
+  background: #070b14;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 1200px;
+  background: #070b14;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ================================
+   전체 화면
+   ================================ */
+
+#root {
+  min-height: 100vh;
+}
+
+.dashboard {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(45, 108, 255, 0.12),
+      transparent 35%
+    ),
+    #070b14;
+}
+
+/* ================================
+   상단 헤더
+   ================================ */
+
+.header {
+  height: 76px;
+  padding: 0 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #1b2537;
+  background: rgba(8, 13, 24, 0.92);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #3478ff,
+    #6c4cff
+  );
+
+  box-shadow:
+    0 0 25px rgba(64, 107, 255, 0.35);
+}
+
+.logo span {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.logo-text h1 {
+  margin: 0;
+  font-size: 19px;
+  letter-spacing: -0.5px;
+}
+
+.logo-text p {
+  margin: 3px 0 0;
+  color: #73809a;
+  font-size: 11px;
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border: 1px solid rgba(58, 210, 140, 0.2);
+  border-radius: 20px;
+
+  background: rgba(38, 190, 120, 0.07);
+
+  color: #4de19b;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+  background: #39d98a;
+
+  box-shadow: 0 0 10px #39d98a;
+}
+
+/* ================================
+   메인
+   ================================ */
+
+.main {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 36px 42px 60px;
+}
+
+/* ================================
+   제목
+   ================================ */
+
+.page-title {
+  margin-bottom: 30px;
+}
+
+.page-title h2 {
+  margin: 0;
+
+  font-size: 31px;
+  font-weight: 750;
+  letter-spacing: -1.3px;
+}
+
+.page-title p {
+  margin: 8px 0 0;
+
+  color: #77849d;
+  font-size: 14px;
+}
+
+/* ================================
+   통계 카드
+   ================================ */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  position: relative;
+
+  padding: 22px;
+
+  min-height: 135px;
+
+  border: 1px solid #1c273a;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    145deg,
+    #101827,
+    #0b111e
+  );
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.18);
+
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -40px;
+  bottom: -45px;
+
+  border-radius: 50%;
+
+  background: rgba(70, 110, 255, 0.08);
+}
+
+.stat-label {
+  color: #7d8ba5;
+  font-size: 13px;
+}
+
+.stat-value {
+  margin-top: 13px;
+
+  font-size: 34px;
+  font-weight: 750;
+
+  letter-spacing: -1px;
+}
+
+.stat-description {
+  margin-top: 6px;
+
+  color: #64718a;
+  font-size: 12px;
+}
+
+.stat-critical {
+  border-color: rgba(255, 74, 91, 0.22);
+}
+
+.stat-critical .stat-value {
+  color: #ff5969;
+}
+
+.stat-warning {
+  border-color: rgba(255, 178, 62, 0.22);
+}
+
+.stat-warning .stat-value {
+  color: #ffb43e;
+}
+
+.stat-normal {
+  border-color: rgba(61, 216, 145, 0.2);
+}
+
+.stat-normal .stat-value {
+  color: #43d995;
+}
+
+/* ================================
+   콘텐츠 2열
+   ================================ */
+
+.content-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(340px, 0.8fr);
+
+  gap: 22px;
+}
+
+/* ================================
+   공통 패널
+   ================================ */
+
+.panel {
+  border: 1px solid #1c273a;
+  border-radius: 18px;
+
+  background: #0c131f;
+
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 20px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #1b2536;
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-title h3 {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.panel-title p {
+  margin: 3px 0 0;
+
+  color: #65738d;
+  font-size: 11px;
+}
+
+.refresh-btn {
+  padding: 8px 12px;
+
+  border: 1px solid #253149;
+  border-radius: 8px;
+
+  background: #111a2a;
+  color: #9aa8bf;
+
+  font-size: 12px;
+
+  transition: 0.2s;
+}
+
+.refresh-btn:hover {
+  border-color: #3c70df;
+  color: #ffffff;
+  background: #14213a;
+}
+
+/* ================================
+   이벤트 리스트
+   ================================ */
+
+.alert-list {
+  padding: 8px;
+}
+
+.alert-card {
+  display: grid;
+
+  grid-template-columns: 7px 1fr auto;
+
+  gap: 16px;
+
+  margin: 7px;
+
+  padding: 17px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  background: #101927;
+
+  transition:
+    transform 0.2s,
+    border 0.2s,
+    background 0.2s;
+}
+
+.alert-card:hover {
+  transform: translateY(-2px);
+
+  border-color: #263750;
+
+  background: #131e30;
+}
+
+.alert-bar {
+  width: 4px;
+
+  border-radius: 5px;
+}
+
+.alert-critical .alert-bar {
+  background: #ff5365;
+  box-shadow: 0 0 10px rgba(255, 83, 101, 0.45);
+}
+
+.alert-warning .alert-bar {
+  background: #ffb43d;
+  box-shadow: 0 0 10px rgba(255, 180, 61, 0.35);
+}
+
+.alert-info .alert-bar {
+  background: #4b8cff;
+  box-shadow: 0 0 10px rgba(75, 140, 255, 0.35);
+}
+
+.alert-content h4 {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.alert-content p {
+  margin: 6px 0 0;
+
+  color: #76849c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.alert-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 9px;
+
+  color: #58667e;
+  font-size: 11px;
+}
+
+.alert-level {
+  padding: 4px 8px;
+
+  border-radius: 5px;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.alert-critical .alert-level {
+  background: rgba(255, 72, 89, 0.12);
+  color: #ff6372;
+}
+
+.alert-warning .alert-level {
+  background: rgba(255, 180, 60, 0.12);
+  color: #ffbb54;
+}
+
+.alert-info .alert-level {
+  background: rgba(75, 140, 255, 0.12);
+  color: #72a4ff;
+}
+
+.alert-time {
+  color: #68758b;
+  font-size: 11px;
+}
+
+/* ================================
+   보안 상태
+   ================================ */
+
+.security-panel {
+  padding-bottom: 20px;
+}
+
+.security-summary {
+  margin: 20px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(59, 215, 143, 0.16);
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(49, 205, 136, 0.09),
+      rgba(10, 20, 31, 0.4)
+    );
+}
+
+.security-summary-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #45dc96;
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.security-check {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(61, 216, 145, 0.12);
+}
+
+.security-summary p {
+  margin: 11px 0 0;
+
+  color: #738198;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ================================
+   AWS 서비스 상태
+   ================================ */
+
+.service-list {
+  padding: 0 20px;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #182234;
+}
+
+.service:last-child {
+  border-bottom: none;
+}
+
+.service-name {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #c6cfdd;
+  font-size: 13px;
+}
+
+.service-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+  background: #3fd891;
+
+  box-shadow: 0 0 8px rgba(63, 216, 145, 0.45);
+}
+
+.service-status {
+  color: #42d994;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ================================
+   반응형
+   ================================ */
+
+@media (max-width: 1000px) {
+  body {
+    min-width: 0;
+  }
+
+  .header {
+    padding: 0 20px;
+  }
+
+  .main {
+    padding: 25px 20px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
