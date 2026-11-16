@@ -19,30 +19,6 @@ CloudGuard는 AWS 환경에서 발생하는 보안 이벤트를 분석하여 사
 * Slack을 활용한 보안 이벤트 알림 연동 구조
 * 보안 현황 및 이벤트 데이터 시각화
 
-🖥️ 담당 구현
-
-Frontend / 실시간 보안 알림 UI
-
-* React + TypeScript 기반 보안 관제 대시보드 구현
-* 보안 점수 및 이벤트 현황을 확인할 수 있는 UI 구현
-* Critical, Warning 등 위험도별 보안 알림 표시
-* 보안 이벤트 상세 정보 및 대응 방법 표시
-* WebSocket을 통한 실시간 보안 이벤트 수신 구조 구성
-* Slack 알림과 대시보드 알림이 연계될 수 있도록 프론트엔드 구조 구성
-
-🛠️ 기술 스택
-
-구분	기술
-Frontend	React
-Language	TypeScript
-Build Tool	Vite
-Runtime	Node.js
-Real-time	WebSocket
-Cloud	AWS
-Security Event	AWS CloudTrail
-Notification	Slack Webhook
-Development	Visual Studio Code
-
 🚀 실행 방법
 
 1. 프로젝트 클론
@@ -72,7 +48,7 @@ npm run dev
 
 실행 후 터미널에 표시되는 로컬 주소로 접속합니다.
 
-http://localhost:5173
+http://localhost...
 
 🔔 실시간 알림 동작 구조
 
@@ -106,10 +82,3 @@ AWS 환경에서 보안 이벤트가 탐지되면 이벤트 처리 서버에서 
 Slack 보안 알림
 
 탐지된 주요 보안 이벤트를 프로젝트 팀의 Slack 채널에서 확인할 수 있습니다.
-
-👥 프로젝트 역할
-
-* Frontend: CloudGuard 보안 관제 대시보드 및 실시간 알림 UI
-* Backend: 보안 이벤트 처리 및 서버 API
-* AWS: 클라우드 환경 및 보안 이벤트 수집
-* Notification: Slack 기반 보안 이벤트 알림
